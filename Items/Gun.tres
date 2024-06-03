@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://dl232ud4q8mix"]
+
+[ext_resource type="Script" path="res://Items/Classes/Weapons.gd" id="1_mmmo0"]
+
+[resource]
+script = ExtResource("1_mmmo0")
+Name = ""
+rarity = "Common"
+wpn_type = "Light"
+gun_type = "SMG"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://gv8fdpahwhkn"]
+
+[ext_resource type="Script" path="res://Items/Classes/Weapons.gd" id="1_u3whi"]
+
+[resource]
+script = ExtResource("1_u3whi")
+Name = "Doom Boom"
+rarity = "Magic"
+wpn_type = "Light"
+gun_type = "AR"
+suffixes = ["Firey"]
+prefixes = []
+maxsuffix = 1
+maxprefix = 1
+itemlevel = 10

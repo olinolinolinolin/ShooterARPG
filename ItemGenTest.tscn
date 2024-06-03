@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpgwtqr8fqr2m"]
+
+[ext_resource type="Script" path="res://ItemGenTest.gd" id="1_6vdyb"]
+[ext_resource type="Script" path="res://Items/Classes/Weapons.gd" id="2_c3xgs"]
+[ext_resource type="Script" path="res://TheTester.gd" id="3_ldsxh"]
+
+[sub_resource type="Resource" id="Resource_s0rx2"]
+script = ExtResource("2_c3xgs")
+Name = ""
+rarity = "Common"
+wpn_type = "Light"
+gun_type = "SMG"
+suffixes = []
+prefixes = []
+maxsuffix = 0
+maxprefix = 0
+itemlevel = 1
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_6vdyb")
+Weapons = SubResource("Resource_s0rx2")
+
+[node name="TheTester" type="Node3D" parent="."]
+script = ExtResource("3_ldsxh")
+
+[connection signal="setitemlevel" from="TheTester" to="." method="_on_the_tester_setitemlevel"]
