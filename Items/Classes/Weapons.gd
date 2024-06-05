@@ -21,4 +21,14 @@ var guntype_dict = {1: "SMG", 2: "AR", 3: "LMG", 4: "Sniper", 5: "Shotgun"}
 
 @export var itemlevel = 1
 
-var damage = 1
+@export var mesh : Mesh
+@export var position : Vector3
+@export var rotation : Vector3
+@export var scale : Vector3
+
+@export var base_damage_phys : float
+@export var base_damage_cold : float
+@export var base_damage_fire : float
+@export var base_damage_lightning : float
+@export var base_damage_poison : float
+@export var ranged : bool

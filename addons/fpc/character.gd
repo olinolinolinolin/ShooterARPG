@@ -174,6 +174,8 @@ func _physics_process(delta):
 					JUMP_ANIMATION.play("land_left", 0.25)
 				1:
 					JUMP_ANIMATION.play("land_right", 0.25)
+	if Input.is_action_just_pressed("Shoot"):
+		$Head/Gun.shoot($Head/GunRaycast)
 	
 	was_on_floor = is_on_floor() # This must always be at the end of physics_process
 

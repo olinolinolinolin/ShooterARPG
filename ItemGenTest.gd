@@ -4,11 +4,11 @@ var  premadegun = load("res://Items/Gun.tres")
 var trulyfairrng = RandomNumberGenerator.new()
 var droplevel = 1
 var gunsuffixes = ["Firey","Freezing","Thundering","Fast","Crazy"]
+var gunmodels = [load("res://Items/Models/Guns/Vektor.obj"),load("res://Items/Models/Guns/Sniper.obj")]
+signal usethisgun
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var this = ResourceLoader.load("res://Items/Gun.tres")
-	print(this)
-	ItemGeneration(1)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -51,8 +51,14 @@ func ItemGeneration(itemlevel):
 	print("Items suffixes are"," ",new_gun.suffixes)
 	print(new_gun.itemlevel)
 	new_gun.Name = "Doom Boom"
-	new_gun.damage = new_gun.itemlevel * 5
+	var gunmeshpick = trulyfairrng.randi_range(0,1)
+	new_gun.mesh = gunmodels[gunmeshpick]
+	new_gun.scale = Vector3(0.5,0.5,0.5)
+	new_gun.position = Vector3(.5,-1,-1)
+	new_gun.rotation = Vector3(0,-90,0)
 	ResourceSaver.save(new_gun,"res://Items/Gun2.tres")
+	usethisgun.emit(new_gun)
+	
 
 func _on_the_tester_setitemlevel(itemlevel):
 	ItemGeneration(itemlevel)

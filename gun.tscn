@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://u2wdpxrbvcek"]
+
+[ext_resource type="Script" path="res://Gun.gd" id="1_j2qxu"]
+[ext_resource type="Resource" uid="uid://b4icjsssv3bw3" path="res://Items/Gun2.tres" id="2_ry81s"]
+
+[node name="Gun" type="Node3D"]
+script = ExtResource("1_j2qxu")
+GunType = ExtResource("2_ry81s")
+
+[node name="GunMesh" type="MeshInstance3D" parent="."]
+layers = 2

@@ -1,15 +1,26 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://gv8fdpahwhkn"]
+[gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://b4icjsssv3bw3"]
 
-[ext_resource type="Script" path="res://Items/Classes/Weapons.gd" id="1_u3whi"]
+[ext_resource type="ArrayMesh" uid="uid://drmjudp8n23ee" path="res://Items/Models/Guns/Sniper.obj" id="1_pwwpl"]
+[ext_resource type="Script" path="res://Items/Classes/Weapons.gd" id="2_37fgp"]
 
 [resource]
-script = ExtResource("1_u3whi")
+script = ExtResource("2_37fgp")
 Name = "Doom Boom"
-rarity = "Magic"
-wpn_type = "Light"
-gun_type = "AR"
-suffixes = ["Firey"]
+rarity = "Common"
+wpn_type = "Sniper"
+gun_type = "SMG"
+suffixes = []
 prefixes = []
-maxsuffix = 1
-maxprefix = 1
-itemlevel = 10
+maxsuffix = 0
+maxprefix = 0
+itemlevel = 1
+mesh = ExtResource("1_pwwpl")
+position = Vector3(0.5, -1, -1)
+rotation = Vector3(0, -90, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+base_damage_phys = 20.2
+base_damage_cold = 35.7
+base_damage_fire = 0.0
+base_damage_lightning = 0.0
+base_damage_poison = 0.0
+ranged = false
