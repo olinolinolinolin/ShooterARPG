@@ -6,11 +6,11 @@
 [sub_resource type="Resource" id="Resource_y4l77"]
 script = ExtResource("2_1xnkj")
 Health = 100.0
-PhysResist = 1.0
-ColdResist = 1.0
-FireResist = 0.0
-LightningResist = 0.0
-PoisonResist = 0.0
+PhysResist = 20.0
+ColdResist = 50.0
+FireResist = 70.0
+LightningResist = 90.0
+PoisonResist = 33.3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rw7rj"]
 

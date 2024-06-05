@@ -30,5 +30,6 @@ func shoot(raycast):
 	if raycast.is_colliding():
 		var hittingthis = raycast.get_collider()
 		if hittingthis.get_owner().has_method("takedamage"):
-			hittingthis.get_owner().takedamage(GunType.base_damage_phys,GunType.base_damage_cold)
+			hittingthis.get_owner().takedamage(GunType.base_damage_phys,GunType.base_damage_cold,GunType.base_damage_fire,
+			GunType.base_damage_lightning,GunType.base_damage_poison)
 
