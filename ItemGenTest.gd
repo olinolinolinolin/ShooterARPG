@@ -1,5 +1,5 @@
 extends Node3D
-@export var Weapons : Weapons
+@export var Weapons : Weapon
 var  premadegun = load("res://Items/Gun.tres")
 var trulyfairrng = RandomNumberGenerator.new()
 var droplevel = 1
@@ -14,7 +14,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		ItemGeneration(1)
 func ItemGeneration(itemlevel):
-	var new_gun = Gun.new()
+	print("lmao")
+	var new_gun = Weapon.new()
 	var itemrarity = trulyfairrng.randf_range(0.0,100)
 	var gunsuffixesarray = gunsuffixes.duplicate()
 	itemrarity = trulyfairrng.randf_range(0.0,100)
@@ -57,6 +58,7 @@ func ItemGeneration(itemlevel):
 	new_gun.position = Vector3(.5,-1,-1)
 	new_gun.rotation = Vector3(0,-90,0)
 	ResourceSaver.save(new_gun,"res://Items/Gun2.tres")
+	print(new_gun)
 	usethisgun.emit(new_gun)
 	
 

@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba72wom6vkfc"]
+
+[ext_resource type="Script" path="res://UI/Inventory/Inventory.gd" id="1_3igeh"]
+[ext_resource type="Script" path="res://UI/Inventory/InventorySlot.gd" id="2_htnma"]
+[ext_resource type="Script" path="res://UI/Inventory/InventoryItem.gd" id="3_rjdwr"]
+[ext_resource type="Resource" uid="uid://dl232ud4q8mix" path="res://Items/Gun.tres" id="4_apvnv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource("1_3igeh")
+
+[node name="Panel" type="Panel" parent="GUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inv" type="GridContainer" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 576.0
+mouse_filter = 0
+columns = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+layout_direction = 2
+offset_left = 192.0
+offset_top = 192.0
+offset_right = 460.0
+offset_bottom = 256.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponSlot1" type="PanelContainer" parent="GUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+script = ExtResource("2_htnma")
+type = 4
+
+[node name="Weapon1" type="TextureRect" parent="GUI/VBoxContainer/HBoxContainer/WeaponSlot1"]
+layout_mode = 2
+script = ExtResource("3_rjdwr")
+data = ExtResource("4_apvnv")
+
+[node name="WeaponSlot2" type="PanelContainer" parent="GUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+script = ExtResource("2_htnma")
+type = 4
+
+[node name="Weapon2" type="TextureRect" parent="GUI/VBoxContainer/HBoxContainer/WeaponSlot2"]
+layout_mode = 2
+script = ExtResource("3_rjdwr")
+data = ExtResource("4_apvnv")
+
+[node name="WeaponSlot3" type="PanelContainer" parent="GUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+script = ExtResource("2_htnma")
+type = 4
+
+[node name="Weapon3" type="TextureRect" parent="GUI/VBoxContainer/HBoxContainer/WeaponSlot3"]
+layout_mode = 2
+script = ExtResource("3_rjdwr")
+data = ExtResource("4_apvnv")
+
+[node name="WeaponSlot4" type="PanelContainer" parent="GUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+script = ExtResource("2_htnma")
+type = 4
+
+[node name="Weapon4" type="TextureRect" parent="GUI/VBoxContainer/HBoxContainer/WeaponSlot4"]
+layout_mode = 2
+script = ExtResource("3_rjdwr")
+data = ExtResource("4_apvnv")

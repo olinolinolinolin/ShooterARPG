@@ -1,6 +1,8 @@
 extends Node3D
 
-@export var GunType : Gun
+var WeaponResource = load("res://Items/Classes/Weapon.gd")
+
+@export var GunType : Weapon
 
 @onready var weapon_mesh : MeshInstance3D = $GunMesh
 var totalgundamage = 0.0
@@ -24,6 +26,7 @@ func _on_node_3d_usethisgun(NewGun):
 	loadweapon()
 	var owninghead = get_parent()
 	var _owningplayer = owninghead.get_parent()
+	print(NewGun)
 
 func shoot(raycast):
 	print(raycast.get_collider())

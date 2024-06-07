@@ -8,6 +8,9 @@ extends CharacterBody3D
 
 # TODO: Add descriptions for each value
 
+signal health_changed
+
+var WeaponSlots = []
 
 @export_category("Character")
 @export var base_speed : float = 3.0
@@ -59,6 +62,8 @@ extends CharacterBody3D
 @export var jump_animation : bool = true
 @export var pausing_enabled : bool = true
 @export var gravity_enabled : bool = true
+var inventory = []
+var health = 100.0
 
 
 # Member variables
@@ -94,6 +99,8 @@ func _ready():
 	CROUCH_ANIMATION.play("RESET")
 	
 	check_controls()
+	WeaponSlots = [$UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot1/Weapon1.data, $UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot2/Weapon2.data,
+	$UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot3/Weapon3.data, $UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot4/Weapon4.data]
 
 func check_controls(): # If you add a control, you might want to add a check for it here.
 	if !InputMap.has_action(JUMP):
@@ -176,6 +183,14 @@ func _physics_process(delta):
 					JUMP_ANIMATION.play("land_right", 0.25)
 	if Input.is_action_just_pressed("Shoot"):
 		$Head/Gun.shoot($Head/GunRaycast)
+	if Input.is_action_just_pressed("Swap to first weapon"):
+		swapweapon(WeaponSlots[0])
+	if Input.is_action_just_pressed("Swap to 2nd"):
+		swapweapon(WeaponSlots[1])
+	if Input.is_action_just_pressed("Swap to 3rd"):
+		swapweapon(WeaponSlots[2])
+	if Input.is_action_just_pressed("Swap to 4th"):
+		swapweapon(WeaponSlots[3])
 	
 	was_on_floor = is_on_floor() # This must always be at the end of physics_process
 
@@ -329,6 +344,7 @@ func _process(delta):
 	
 	if pausing_enabled:
 		if Input.is_action_just_pressed(PAUSE):
+			pass
 			match Input.mouse_mode:
 				Input.MOUSE_MODE_CAPTURED:
 					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -348,3 +364,22 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
+
+
+func _on_node_3d_usethisgun(NewGun):
+	inventory.append(NewGun)
+	
+func swapweapon(SwapToThis):
+	$Head/Gun._on_node_3d_usethisgun(SwapToThis)
+	changehealth(-100)
+	
+func changehealth(change):
+	health += change
+	health_changed.emit(health)
+	
+func _on_gui_updateplayerslots(data, slot):
+	WeaponSlots[slot] = data
+	print(WeaponSlots)
+
+
+

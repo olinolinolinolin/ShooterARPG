@@ -28,7 +28,5 @@ func takedamage(phys,cold,fire,lightning,poison):
 	var poisondmgtotake = poison * (1.0 - (poisonresist / 100))
 	var dmgtotake = (physdmgtotake + colddmgtotake + firedmgtotake + lightningdmgtotake + poisondmgtotake)
 	Health -= (dmgtotake)
-	print(dmgtotake)
-	print(Health)
 	if Health <= 0:
 		print("Im dead as hell")

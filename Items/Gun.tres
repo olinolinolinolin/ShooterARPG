@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://dl232ud4q8mix"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://dl232ud4q8mix"]
 
-[ext_resource type="Script" path="res://Items/Classes/Weapons.gd" id="1_mmmo0"]
+[ext_resource type="Texture2D" uid="uid://djdlvqpyc408q" path="res://UI/Health/OrbHealth.png" id="1_11erx"]
+[ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="1_mmmo0"]
+[ext_resource type="ArrayMesh" uid="uid://upxi88e6twg3" path="res://Items/Models/Guns/Vektor.obj" id="2_ysxa2"]
 
 [resource]
 script = ExtResource("1_mmmo0")
-Name = ""
+Name = "This Works"
+type = 4
+InvIcon = ExtResource("1_11erx")
 rarity = "Common"
 wpn_type = "Light"
 gun_type = "SMG"
@@ -13,6 +17,13 @@ prefixes = []
 maxsuffix = 0
 maxprefix = 0
 itemlevel = 1
-position = Vector3(0, 0, 0)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0, 0, 0)
+mesh = ExtResource("2_ysxa2")
+position = Vector3(0.5, -1, -1)
+rotation = Vector3(0, -90, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+base_damage_phys = 30.0
+base_damage_cold = 30.0
+base_damage_fire = 30.0
+base_damage_lightning = 20.0
+base_damage_poison = 50.0
+ranged = false

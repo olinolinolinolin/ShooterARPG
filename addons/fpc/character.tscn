@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=26 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://addons/fpc/character.gd" id="1_0t4e8"]
 [ext_resource type="PackedScene" uid="uid://u2wdpxrbvcek" path="res://gun.tscn" id="2_x030s"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
 [ext_resource type="Script" path="res://addons/fpc/WeaponSubViewport.gd" id="4_in3o2"]
 [ext_resource type="Script" path="res://addons/fpc/WeaponCamera.gd" id="5_5dne8"]
+[ext_resource type="PackedScene" uid="uid://drvmdwb8dccyi" path="res://health_bar.tscn" id="6_rsfny"]
+[ext_resource type="PackedScene" uid="uid://ba72wom6vkfc" path="res://UI/Inventory/inventory.tscn" id="7_mwdx5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -426,7 +428,7 @@ transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"walk", &"RESET", 0.5]
+blend_times = [&"walk", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"RESET", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -481,6 +483,13 @@ script = ExtResource("4_in3o2")
 [node name="WeaponCamera" type="Camera3D" parent="UserInterface/WeaponViewport/SubViewport"]
 script = ExtResource("5_5dne8")
 
+[node name="HealthBar" parent="UserInterface" instance=ExtResource("6_rsfny")]
+layout_mode = 1
+mouse_filter = 2
+
+[node name="Node2D" parent="UserInterface" instance=ExtResource("7_mwdx5")]
+position = Vector2(13, 25)
+
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_k4wwl")
@@ -488,3 +497,9 @@ target_position = Vector3(0, 0.5, 0)
 
 [node name="EditorModule" type="Node" parent="."]
 script = ExtResource("3_v3ckk")
+
+[connection signal="health_changed" from="." to="UserInterface/HealthBar" method="_on_character_health_changed"]
+[connection signal="updateplayerslots" from="UserInterface/Node2D/GUI" to="." method="_on_gui_updateplayerslots"]
+[connection signal="ChangeWeaponSlot" from="UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot1" to="UserInterface/Node2D/GUI" method="_on_weapon_slot_1_change_weapon_slot"]
+
+[editable path="UserInterface/Node2D"]

@@ -1,7 +1,12 @@
 extends Resource
-class_name Gun
+class_name Weapon
+
+
+enum Type {HEAD, CHEST, GLOVES, BOOTS, WEAPON, RING}
 
 @export var Name: String
+@export var type : Type
+@export var InvIcon : Texture2D
 @export_enum("Common","Magic","Rare","Legendary")
 var rarity: String = "Common"
 var rarity_dict = {50: "Common",25: "Magic",15: "Rare",10: "Legendary"}

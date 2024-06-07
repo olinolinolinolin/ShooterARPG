@@ -24,6 +24,7 @@ size = Vector3(20, 2, 50)
 
 [node name="Character" parent="." instance=ExtResource("1_mhvk8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0627038, 0, 1.25787)
+PAUSE = ""
 dynamic_fov = false
 
 [node name="Camera" parent="Character/Head" index="0"]
@@ -31,6 +32,24 @@ cull_mask = 1048573
 
 [node name="WeaponCamera" parent="Character/UserInterface/WeaponViewport/SubViewport" index="0"]
 cull_mask = 1048574
+
+[node name="HealthBar" parent="Character/UserInterface" index="2"]
+offset_left = -174.0
+offset_top = 18.0
+offset_right = -174.0
+offset_bottom = 18.0
+
+[node name="GUI" parent="Character/UserInterface/Node2D" index="0"]
+visible = false
+
+[node name="WeaponSlot2" parent="Character/UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="1"]
+Slot = 1
+
+[node name="WeaponSlot3" parent="Character/UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="2"]
+Slot = 2
+
+[node name="WeaponSlot4" parent="Character/UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="3"]
+Slot = 3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.462956, 0.886381, 0, -0.886381, 0.462956, 0, 4.61728, -4.39757)
@@ -49,6 +68,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9494, 0, 0.55761)
 [node name="Enemy" parent="." instance=ExtResource("3_x1y16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13818, 0.93125, -5.11371)
 
-[connection signal="usethisgun" from="Node3D" to="Character/Head/Gun" method="_on_node_3d_usethisgun"]
+[connection signal="ChangeWeaponSlot" from="Character/UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot2" to="Character/UserInterface/Node2D/GUI" method="_on_weapon_slot_2_change_weapon_slot"]
+[connection signal="ChangeWeaponSlot" from="Character/UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot3" to="Character/UserInterface/Node2D/GUI" method="_on_weapon_slot_3_change_weapon_slot"]
+[connection signal="ChangeWeaponSlot" from="Character/UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot4" to="Character/UserInterface/Node2D/GUI" method="_on_weapon_slot_4_change_weapon_slot"]
+[connection signal="usethisgun" from="Node3D" to="Character" method="_on_node_3d_usethisgun"]
 
 [editable path="Character"]
+[editable path="Character/UserInterface/Node2D"]
