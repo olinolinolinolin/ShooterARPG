@@ -79,3 +79,8 @@ type = 4
 layout_mode = 2
 script = ExtResource("3_rjdwr")
 data = ExtResource("4_apvnv")
+
+[connection signal="ChangeWeaponSlot" from="GUI/VBoxContainer/HBoxContainer/WeaponSlot1" to="GUI" method="_on_weapon_slot_1_change_weapon_slot"]
+[connection signal="ChangeWeaponSlot" from="GUI/VBoxContainer/HBoxContainer/WeaponSlot2" to="GUI" method="_on_weapon_slot_2_change_weapon_slot"]
+[connection signal="ChangeWeaponSlot" from="GUI/VBoxContainer/HBoxContainer/WeaponSlot3" to="GUI" method="_on_weapon_slot_3_change_weapon_slot"]
+[connection signal="ChangeWeaponSlot" from="GUI/VBoxContainer/HBoxContainer/WeaponSlot4" to="GUI" method="_on_weapon_slot_4_change_weapon_slot"]

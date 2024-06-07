@@ -398,6 +398,7 @@ HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
 COLLISION_MESH = NodePath("Collision")
+PAUSE = ""
 CROUCH = "crouch"
 SPRINT = "sprint"
 LOOK_LEFT = "LookLeft"
@@ -428,7 +429,7 @@ transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"walk", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"RESET", &"RESET", 0.5]
+blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"walk", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -490,6 +491,15 @@ mouse_filter = 2
 [node name="Node2D" parent="UserInterface" instance=ExtResource("7_mwdx5")]
 position = Vector2(13, 25)
 
+[node name="GUI" parent="UserInterface/Node2D" index="0"]
+visible = false
+
+[node name="WeaponSlot2" parent="UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="1"]
+Slot = 1
+
+[node name="WeaponSlot3" parent="UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="2"]
+Slot = 2
+
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_k4wwl")
@@ -500,6 +510,5 @@ script = ExtResource("3_v3ckk")
 
 [connection signal="health_changed" from="." to="UserInterface/HealthBar" method="_on_character_health_changed"]
 [connection signal="updateplayerslots" from="UserInterface/Node2D/GUI" to="." method="_on_gui_updateplayerslots"]
-[connection signal="ChangeWeaponSlot" from="UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer/WeaponSlot1" to="UserInterface/Node2D/GUI" method="_on_weapon_slot_1_change_weapon_slot"]
 
 [editable path="UserInterface/Node2D"]

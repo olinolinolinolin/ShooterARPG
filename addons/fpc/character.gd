@@ -383,3 +383,6 @@ func _on_gui_updateplayerslots(data, slot):
 
 
 
+
+
+
