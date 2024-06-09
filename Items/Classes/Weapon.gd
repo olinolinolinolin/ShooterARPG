@@ -37,3 +37,6 @@ var guntype_dict = {1: "SMG", 2: "AR", 3: "LMG", 4: "Sniper", 5: "Shotgun"}
 @export var base_damage_lightning : float
 @export var base_damage_poison : float
 @export var ranged : bool
+
+
+

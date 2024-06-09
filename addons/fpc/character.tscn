@@ -500,6 +500,9 @@ Slot = 1
 [node name="WeaponSlot3" parent="UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="2"]
 Slot = 2
 
+[node name="WeaponSlot4" parent="UserInterface/Node2D/GUI/VBoxContainer/HBoxContainer" index="3"]
+Slot = 3
+
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_k4wwl")
