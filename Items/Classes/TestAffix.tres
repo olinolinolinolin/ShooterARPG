@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Affix" load_steps=2 format=3 uid="uid://bfxuwu0x8e4ju"]
+
+[ext_resource type="Script" path="res://Items/Classes/Affixes.gd" id="1_yhvyv"]
+
+[resource]
+script = ExtResource("1_yhvyv")
+name = ""
+tags = ["Phys"]
+tier = 1
+MathType = "Add"
+DmgType = "Phys"

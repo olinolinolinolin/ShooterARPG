@@ -55,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9494, 0, 0.55761)
 [node name="Enemy" parent="." instance=ExtResource("3_x1y16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13818, 0.93125, -5.11371)
 
+[connection signal="reloadinv" from="Character/Head/Gun" to="Character" method="_on_gun_reloadinv"]
 [connection signal="usethisgun" from="Node3D" to="Character" method="_on_node_3d_usethisgun"]
 
 [editable path="Character"]

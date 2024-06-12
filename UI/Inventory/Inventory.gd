@@ -4,9 +4,7 @@ signal updateplayerslots
 
 
 @export var InvSize = 20
-var itemsLoad = [ "res://Items/Gun.tres" , "res://Items/Gun2.tres"
-	
-]
+@export var itemsLoad = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in InvSize:
@@ -21,7 +19,7 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("inventory"):
 		self.visible = !self.visible
 		if Input.mouse_mode == 0:
@@ -33,8 +31,9 @@ func _process(delta):
 func reloaditems():
 	for i in itemsLoad.size():
 		var item := InventoryItem.new()
-		item.init(load(itemsLoad[i]))
-		%Inv.get_child(i).add_child(item)
+		item.init(itemsLoad[i])
+		if %Inv.get_child(i).get_child_count() == 0:
+			%Inv.get_child(i).add_child(item)
 
 
 

@@ -368,10 +368,13 @@ func _unhandled_input(event):
 
 func _on_node_3d_usethisgun(NewGun):
 	inventory.append(NewGun)
+	$UserInterface/Node2D/GUI.itemsLoad = inventory
+	print($UserInterface/Node2D/GUI.itemsLoad)
+	$UserInterface/Node2D/GUI.reloaditems()
 	
 func swapweapon(SwapToThis):
 	$Head/Gun._on_node_3d_usethisgun(SwapToThis)
-	changehealth(-100)
+	
 	
 func changehealth(change):
 	health += change

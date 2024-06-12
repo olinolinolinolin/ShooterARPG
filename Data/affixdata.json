@@ -1,0 +1,23 @@
+{
+  "Smoking": {
+    "AffixTier": 10,
+    "AffixItemType": "Weapon",
+    "AffixDmgType": "Fire",
+    "AffixMinValue": 10,
+    "AffixMaxValue": 25
+  },
+  "Firey": {
+    "AffixTier": 5,
+    "AffixItemType": "Weapon",
+    "AffixDmgType": "Fire",
+    "AffixMinValue": 50,
+    "AffixMaxValue": 100
+  },
+  "Shadowy": {
+    "AffixTier": 10,
+    "AffixItemType": "Weapon",
+    "AffixDmgType": "Shadow",
+    "AffixMinValue": 10,
+    "AffixMaxValue": 25
+  }
+}

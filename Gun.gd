@@ -1,7 +1,7 @@
 extends Node3D
 
 var WeaponResource = load("res://Items/Classes/Weapon.gd")
-
+signal reloadinv
 @export var GunType : Weapon
 
 @onready var weapon_mesh : MeshInstance3D = $GunMesh
@@ -18,8 +18,8 @@ func loadweapon():
 	position = GunType.position
 	rotation_degrees = GunType.rotation
 	scale = GunType.scale
-	totalgundamage = GunType.base_damage_poison + GunType.base_damage_lightning + GunType.base_damage_cold + GunType.base_damage_phys + GunType.base_damage_fire
-	print(totalgundamage)
+	print(GunType.suffixes)
+	print(GunType.totaldamage)
 
 func _on_node_3d_usethisgun(NewGun):
 	GunType = NewGun

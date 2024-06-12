@@ -1,23 +1,23 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://cnly451k5qm6k"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://brcchhtiggw11" path="res://icon.svg" id="1_cvsnh"]
-[ext_resource type="ArrayMesh" uid="uid://drmjudp8n23ee" path="res://Items/Models/Guns/Sniper.obj" id="1_o6btx"]
-[ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="2_tcl3k"]
+[ext_resource type="Texture2D" path="res://Items/PlaceHolderImages/akifunny.png" id="1_caycr"]
+[ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="2_1b4id"]
+[ext_resource type="ArrayMesh" path="res://Items/Models/Guns/Sniper.obj" id="2_eoivu"]
 
 [resource]
-script = ExtResource("2_tcl3k")
+script = ExtResource("2_1b4id")
 Name = "Doom Boom"
 type = 0
-InvIcon = ExtResource("1_cvsnh")
-rarity = "Legendary"
-wpn_type = "Light"
-gun_type = "AR"
-suffixes = []
+InvIcon = ExtResource("1_caycr")
+rarity = "Magic"
+wpn_type = "Sniper"
+gun_type = "SMG"
+suffixes = ["Shadowy"]
 prefixes = []
-maxsuffix = 0
-maxprefix = 0
+maxsuffix = 1
+maxprefix = 1
 itemlevel = 1
-mesh = ExtResource("1_o6btx")
+mesh = ExtResource("2_eoivu")
 position = Vector3(0.5, -1, -1)
 rotation = Vector3(0, -90, 0)
 scale = Vector3(0.5, 0.5, 0.5)
@@ -25,5 +25,5 @@ base_damage_phys = 0.0
 base_damage_cold = 0.0
 base_damage_fire = 0.0
 base_damage_lightning = 0.0
-base_damage_poison = 0.0
+base_damage_poison = 25.0
 ranged = false

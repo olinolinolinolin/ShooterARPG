@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpgwtqr8fqr2m"]
+[gd_scene load_steps=6 format=3 uid="uid://dpgwtqr8fqr2m"]
 
 [ext_resource type="Script" path="res://ItemGenTest.gd" id="1_6vdyb"]
 [ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="2_5k1il"]
 [ext_resource type="Script" path="res://TheTester.gd" id="3_ldsxh"]
+[ext_resource type="PackedScene" uid="uid://u2wdpxrbvcek" path="res://gun.tscn" id="4_i4gcl"]
 
 [sub_resource type="Resource" id="Resource_s0rx2"]
 script = ExtResource("2_5k1il")
@@ -32,5 +33,7 @@ Weapons = SubResource("Resource_s0rx2")
 
 [node name="TheTester" type="Node3D" parent="."]
 script = ExtResource("3_ldsxh")
+
+[node name="Gun" parent="." instance=ExtResource("4_i4gcl")]
 
 [connection signal="setitemlevel" from="TheTester" to="." method="_on_the_tester_setitemlevel"]
