@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bewu0755gyx4v"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://btshajohu6o81" path="res://Items/PlaceHolderImages/akifunny.png" id="1_caycr"]
+[ext_resource type="Texture2D" path="res://Items/PlaceHolderImages/akifunny.png" id="1_caycr"]
 [ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="2_1b4id"]
-[ext_resource type="ArrayMesh" uid="uid://upxi88e6twg3" path="res://Items/Models/Guns/Vektor.obj" id="2_chwej"]
+[ext_resource type="ArrayMesh" path="res://Items/Models/Guns/Vektor.obj" id="2_vrqnv"]
 
 [resource]
 script = ExtResource("2_1b4id")
@@ -17,7 +17,7 @@ prefixes = []
 maxsuffix = 0
 maxprefix = 0
 itemlevel = 1
-mesh = ExtResource("2_chwej")
+mesh = ExtResource("2_vrqnv")
 position = Vector3(0.5, -1, -1)
 rotation = Vector3(0, -90, 0)
 scale = Vector3(0.5, 0.5, 0.5)

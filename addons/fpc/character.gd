@@ -386,27 +386,43 @@ func changehealth(change):
 	
 	
 	#This needs to be to stop duplicating slots please don't remove this (dumbass implied)
-func _on_gui_updateplayerslots(data, slot):
-	var currentslot = WeaponSlots[slot]
-	var previousslot = null
-	if currentslot != null:
-		print("this is the last slot", " ", WeaponSlots[slot])
-		previousslot = WeaponSlots[slot]
-	WeaponSlots[slot] = data
-	var WeaponSlotstocheck = [0,1,2,3]
-	WeaponSlotstocheck.remove_at(slot)
-	if currentslot == null:
-		for slots in WeaponSlotstocheck:
-			print(WeaponSlotstocheck)
-			if WeaponSlots[slot] == WeaponSlots[slots]:
-				WeaponSlots[slots] = null
-			print(WeaponSlots)
-			return
+func _on_gui_updateplayerslots(data, new_slot):
+	var old_slot_index = null
+	var new_data_slot_index = null
+	
+	# Find the index of the old slot that contains the 'data' item
+	for i in range(len(WeaponSlots)):
+		if WeaponSlots[i] == data:
+			old_slot_index = i
+			break
+	
+	# Store the current value in the new slot
+	var current_new_slot_value = WeaponSlots[new_slot]
+	
+	# If the 'data' item was found in an existing slot
+	if old_slot_index != null:
+		# Move the item from the old slot to the new slot
+		WeaponSlots[new_slot] = data
+		
+		# If the new slot had a value, move it to the old slot
+		if current_new_slot_value != null:
+			WeaponSlots[old_slot_index] = current_new_slot_value
+		else:
+			# Otherwise, set the old slot to null
+			WeaponSlots[old_slot_index] = null
+	else:
+		# If the 'data' item was not found in an existing slot
+		# Simply assign it to the new slot
+		WeaponSlots[new_slot] = data
+	
+	# Remove any duplicate occurrences of the new slot value
+	var slots_to_check = [0, 1, 2, 3]
+	slots_to_check.remove_at(new_slot)
+	for slotz in slots_to_check:
+		if WeaponSlots[new_slot] == current_new_slot_value:
+			WeaponSlots[new_slot] = null
+	
 	print(WeaponSlots)
-
-func fixpreviousslot(lastslot, data):
-	var slotstosearch = [0,1,2,3]
-	WeaponSlots[lastslot] = data
 
 
 
