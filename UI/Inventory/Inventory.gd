@@ -41,7 +41,6 @@ func reloaditems():
 
 
 
-
 func _on_weapon_slot_1_change_weapon_slot(data, slot):
 	updateplayerslots.emit(data, slot)
 

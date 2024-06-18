@@ -29,3 +29,4 @@ func _drop_data(_at_position: Vector2, data: Variant):
 		item.reparent(data.get_parent())
 	data.reparent(self)
 	ChangeWeaponSlot.emit(data.data, Slot)
+	print(data.data)

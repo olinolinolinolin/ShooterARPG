@@ -10,7 +10,7 @@ extends CharacterBody3D
 
 signal health_changed
 
-var WeaponSlots = []
+@export var WeaponSlots = []
 
 @export_category("Character")
 @export var base_speed : float = 3.0
@@ -184,13 +184,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Shoot"):
 		$Head/Gun.shoot($Head/GunRaycast)
 	if Input.is_action_just_pressed("Swap to first weapon"):
-		swapweapon(WeaponSlots[0])
+		if WeaponSlots[0] != null:
+			swapweapon(WeaponSlots[0])
 	if Input.is_action_just_pressed("Swap to 2nd"):
-		swapweapon(WeaponSlots[1])
+		if WeaponSlots[1] != null:
+			swapweapon(WeaponSlots[1])
 	if Input.is_action_just_pressed("Swap to 3rd"):
-		swapweapon(WeaponSlots[2])
+		if WeaponSlots[2] != null:
+			swapweapon(WeaponSlots[2])
 	if Input.is_action_just_pressed("Swap to 4th"):
-		swapweapon(WeaponSlots[3])
+		if WeaponSlots[3] != null:
+			swapweapon(WeaponSlots[3])
 	
 	was_on_floor = is_on_floor() # This must always be at the end of physics_process
 
@@ -380,9 +384,18 @@ func changehealth(change):
 	health += change
 	health_changed.emit(health)
 	
+	
+	#This needs to be to stop duplicating slots please don't remove this (dumbass implied)
 func _on_gui_updateplayerslots(data, slot):
 	WeaponSlots[slot] = data
+	var WeaponSlotstocheck = [0,1,2,3]
+	WeaponSlotstocheck.remove_at(slot)
+	for slots in WeaponSlotstocheck:
+		print(WeaponSlotstocheck)
+		if WeaponSlots[slot] == WeaponSlots[slots]:
+			WeaponSlots[slots] = null
 	print(WeaponSlots)
+
 
 
 

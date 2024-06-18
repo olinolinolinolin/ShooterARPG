@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bewu0755gyx4v"]
 
-[ext_resource type="Texture2D" path="res://Items/PlaceHolderImages/akifunny.png" id="1_caycr"]
+[ext_resource type="Texture2D" uid="uid://btshajohu6o81" path="res://Items/PlaceHolderImages/akifunny.png" id="1_caycr"]
 [ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="2_1b4id"]
-[ext_resource type="ArrayMesh" path="res://Items/Models/Guns/Sniper.obj" id="2_eoivu"]
+[ext_resource type="ArrayMesh" uid="uid://upxi88e6twg3" path="res://Items/Models/Guns/Vektor.obj" id="2_g6uhb"]
 
 [resource]
 script = ExtResource("2_1b4id")
@@ -10,20 +10,20 @@ Name = "Doom Boom"
 type = 0
 InvIcon = ExtResource("1_caycr")
 rarity = "Magic"
-wpn_type = "Sniper"
-gun_type = "SMG"
-suffixes = ["Shadowy"]
+wpn_type = "Light"
+gun_type = "LMG"
+suffixes = ["Smoking"]
 prefixes = []
 maxsuffix = 1
 maxprefix = 1
 itemlevel = 1
-mesh = ExtResource("2_eoivu")
+mesh = ExtResource("2_g6uhb")
 position = Vector3(0.5, -1, -1)
 rotation = Vector3(0, -90, 0)
 scale = Vector3(0.5, 0.5, 0.5)
 base_damage_phys = 0.0
 base_damage_cold = 0.0
-base_damage_fire = 0.0
+base_damage_fire = 25.0
 base_damage_lightning = 0.0
-base_damage_poison = 25.0
+base_damage_poison = 0.0
 ranged = false

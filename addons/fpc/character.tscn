@@ -398,7 +398,6 @@ HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
 COLLISION_MESH = NodePath("Collision")
-PAUSE = ""
 CROUCH = "crouch"
 SPRINT = "sprint"
 LOOK_LEFT = "LookLeft"
