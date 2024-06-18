@@ -2,28 +2,28 @@
 
 [ext_resource type="Texture2D" uid="uid://btshajohu6o81" path="res://Items/PlaceHolderImages/akifunny.png" id="1_caycr"]
 [ext_resource type="Script" path="res://Items/Classes/Weapon.gd" id="2_1b4id"]
-[ext_resource type="ArrayMesh" uid="uid://upxi88e6twg3" path="res://Items/Models/Guns/Vektor.obj" id="2_g6uhb"]
+[ext_resource type="ArrayMesh" uid="uid://upxi88e6twg3" path="res://Items/Models/Guns/Vektor.obj" id="2_chwej"]
 
 [resource]
 script = ExtResource("2_1b4id")
 Name = "Doom Boom"
 type = 0
 InvIcon = ExtResource("1_caycr")
-rarity = "Magic"
-wpn_type = "Light"
-gun_type = "LMG"
-suffixes = ["Smoking"]
+rarity = "Common"
+wpn_type = "Sniper"
+gun_type = "SMG"
+suffixes = []
 prefixes = []
-maxsuffix = 1
-maxprefix = 1
+maxsuffix = 0
+maxprefix = 0
 itemlevel = 1
-mesh = ExtResource("2_g6uhb")
+mesh = ExtResource("2_chwej")
 position = Vector3(0.5, -1, -1)
 rotation = Vector3(0, -90, 0)
 scale = Vector3(0.5, 0.5, 0.5)
 base_damage_phys = 0.0
 base_damage_cold = 0.0
-base_damage_fire = 25.0
+base_damage_fire = 0.0
 base_damage_lightning = 0.0
 base_damage_poison = 0.0
 ranged = false

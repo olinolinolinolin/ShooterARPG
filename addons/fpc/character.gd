@@ -387,16 +387,26 @@ func changehealth(change):
 	
 	#This needs to be to stop duplicating slots please don't remove this (dumbass implied)
 func _on_gui_updateplayerslots(data, slot):
+	var currentslot = WeaponSlots[slot]
+	var previousslot = null
+	if currentslot != null:
+		print("this is the last slot", " ", WeaponSlots[slot])
+		previousslot = WeaponSlots[slot]
 	WeaponSlots[slot] = data
 	var WeaponSlotstocheck = [0,1,2,3]
 	WeaponSlotstocheck.remove_at(slot)
-	for slots in WeaponSlotstocheck:
-		print(WeaponSlotstocheck)
-		if WeaponSlots[slot] == WeaponSlots[slots]:
-			WeaponSlots[slots] = null
+	if currentslot == null:
+		for slots in WeaponSlotstocheck:
+			print(WeaponSlotstocheck)
+			if WeaponSlots[slot] == WeaponSlots[slots]:
+				WeaponSlots[slots] = null
+			print(WeaponSlots)
+			return
 	print(WeaponSlots)
 
-
+func fixpreviousslot(lastslot, data):
+	var slotstosearch = [0,1,2,3]
+	WeaponSlots[lastslot] = data
 
 
 
